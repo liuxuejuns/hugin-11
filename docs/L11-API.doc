@@ -1,0 +1,2383 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:w="urn:schemas-microsoft-com:office:word"
+    xmlns="http://www.w3.org/TR/REC-html40">
+    <head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style type="text/css">
+        table  
+        {  
+            border-collapse: collapse;
+            border: none;  
+            width: 100%;  
+        }  
+        td,tr  
+        {  
+            border: solid #CCC 1px;
+            padding:3px;
+            font-size:9pt;
+        } 
+        .codestyle{
+            word-break: break-all;
+            mso-highlight:rgb(252, 252, 252);
+            padding-left: 5px; background-color: rgb(252, 252, 252); border: 1px solid rgb(225, 225, 232);
+        }
+        img {
+            width:100;
+        }
+    </style>
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 11">
+    <meta name=Originator content="Microsoft Word 11">
+    <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+    <body><h1>1、area</h1><div style="margin-left:0px;"><h2>1.1、获取area</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/area/arealist/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 2,
+            "area": "B",
+            "floor": 1,
+            "current_count": 2
+        }
+    ],
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">area</td>
+<td style="text-align: left;">string</td>
+<td>区域</td>
+</tr>
+<tr>
+<td style="text-align: left;">floor</td>
+<td style="text-align: left;">int</td>
+<td>楼层</td>
+</tr>
+<tr>
+<td style="text-align: left;">current_count</td>
+<td style="text-align: left;">int</td>
+<td>location数量</td>
+</tr>
+</tbody>
+</table></div><h2>1.2、添加area</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/area/createarea/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">area</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>区域</td>
+</tr>
+<tr>
+<td style="text-align: left;">floor</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>楼层</td>
+</tr>
+<tr>
+<td style="text-align: left;">current_count</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>当前数量</td>
+</tr>
+<tr>
+<td style="text-align: left;">racklocation_prefix</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>racklocation名称前缀</td>
+</tr>
+<tr>
+<td style="text-align: left;">is_int</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>0:数字；1:字母</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add area success"
+}
+</code></pre></table></div><h2>1.3、修改区域</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/area/info/3/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">area</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>区域</td>
+</tr>
+<tr>
+<td style="text-align: left;">floor</td>
+<td style="text-align: left;">否</td>
+<td>int</td>
+<td>楼层</td>
+</tr>
+</tbody>
+</table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "msg": "this area is exist"
+}
+</code></pre></table></div><h2>1.4、删除区域</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/area/info/2/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul></div></div><h1>2、component</h1><div style="margin-left:0px;"><h2>2.1、获取所有component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/componentlist/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 5,
+            "name": "c_name_08_2",
+            "test_plan": "asdf",
+            "stage": "tn",
+            "col": 1,
+            "row": 1,
+            "sns": [
+                {
+                    "id": 1,
+                    "sn": "c_sn_08_2"
+                }
+            ],
+            "pns": [],
+            "mos": [],
+            "modelnames": [
+                {
+                    "id": 2,
+                    "model_name": "c_mode_name_08_2"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "c_name_08_3",
+            "test_plan": "asdf",
+            "stage": "tn",
+            "col": 1,
+            "row": 1,
+            "sns": [
+                {
+                    "id": 2,
+                    "sn": "c_sn_08_3"
+                }
+            ],
+            "pns": [],
+            "mos": [],
+            "modelnames": [
+                {
+                    "id": 3,
+                    "model_name": "c_mode_name_08_3"
+                }
+            ]
+        }
+    ],
+    "msg": "success",
+    "count": 2
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>component name</td>
+</tr>
+<tr>
+<td style="text-align: left;">test_plan</td>
+<td style="text-align: left;">string</td>
+<td>测试计划</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">string</td>
+<td>站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">col</td>
+<td style="text-align: left;">string</td>
+<td>所占列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">row</td>
+<td style="text-align: left;">string</td>
+<td>所占行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">sns</td>
+<td style="text-align: left;">array</td>
+<td>所含sn信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">sns.sn</td>
+<td style="text-align: left;">string</td>
+<td>sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">pns</td>
+<td style="text-align: left;">array</td>
+<td>所含pn信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">mos</td>
+<td style="text-align: left;">array</td>
+<td>所含mo信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">modelnames</td>
+<td style="text-align: left;">array</td>
+<td>所含model name信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">modelnames.model_name</td>
+<td style="text-align: left;">string</td>
+<td>model name</td>
+</tr>
+</tbody>
+</table></div><h2>2.2、添加component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/componentlist/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">model</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>model name</td>
+</tr>
+<tr>
+<td style="text-align: left;">test_plan</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>测试计划</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">col</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>占用的列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">row</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>占用的行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>name</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">pn</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>pn</td>
+</tr>
+<tr>
+<td style="text-align: left;">mo</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>component类型;0:L10;1:非L10(switch,PDU)</td>
+</tr>
+<tr>
+<td style="text-align: left;">is_iperf</td>
+<td style="text-align: left;">否</td>
+<td>int</td>
+<td>是否进行iperf测试，0：false；1：true</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add component success"
+}
+</code></pre></table></div><h2>2.3、修改component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>不支持修改col,row</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/componentdetail/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">model_name</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">test_plan</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div><h2>2.4、删除component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>通过componentID删除数据，不支持删除已使用component</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/componentdetail/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul></div><h2>2.5、获取单个component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>通过componentid 获取单个component信息</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/componentdetail/3/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 3,
+        "name": "UUT",
+        "model": "RAINIER 1U",
+        "test_plan": "\/root\/l11\/tn_debug.xml",
+        "stage": "TN,TO,TP,PX",
+        "col": 2,
+        "row": 1,
+        "sns": [],
+        "pns": [],
+        "mos": []
+    },
+    "msg": "success"
+}
+</code></pre></table></div><h2>2.6、buildtest</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>buildtest</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/testrecord/buildtest/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div><h2>2.7、通过sn获取component</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/getcomponentbysn/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 5,
+        "name": "c_name_08_2",
+        "test_plan": "asdf",
+        "stage": "tn",
+        "col": 1,
+        "row": 1
+    },
+    "msg": "success"
+}
+</code></pre></table></div><h2>2.1、mo</h2><div style="margin-left:0px;"><h3>2.1.1、获取mo</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/molist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "mo": "m-mo-test",
+            "component_id__id": 8
+        }
+    ],
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>mo id</td>
+</tr>
+<tr>
+<td style="text-align: left;">mo</td>
+<td style="text-align: left;">string</td>
+<td>mo 信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">component_id__id</td>
+<td style="text-align: left;">string</td>
+<td>mo所对应的component ID</td>
+</tr>
+</tbody>
+</table></div><h3>2.1.2、创建mo</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/molist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">mo</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>mo</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add Mo success"
+}
+</code></pre></table></div><h3>2.1.3、删除mo</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/modetail/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 204,
+    "msg": "del success"
+}
+</code></pre></table></div></div><h2>2.2、pn</h2><div style="margin-left:0px;"><h3>2.2.1、获取pn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/pnlist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "pn": "m-pn-test",
+            "component_id__id": 8
+        }
+    ],
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>pn ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">pn</td>
+<td style="text-align: left;">string</td>
+<td>pn 信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">component_id__id</td>
+<td style="text-align: left;">string</td>
+<td>pn所对应的component ID</td>
+</tr>
+</tbody>
+</table></div><h3>2.2.2、创建pn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/pnlist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>pn</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add Pn success"
+}
+</code></pre></table></div><h3>2.2.3、删除pn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/pndetail/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 204,
+    "msg": "del success"
+}
+</code></pre></table></div></div><h2>2.3、sn</h2><div style="margin-left:0px;"><h3>2.3.1、获取sn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/snlist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "sn": "m-sn-test",
+            "component_id__id": 8
+        }
+    ],
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>sn ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">string</td>
+<td>sn 信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">component_id__id</td>
+<td style="text-align: left;">string</td>
+<td>sn所对应的component ID</td>
+</tr>
+</tbody>
+</table></div><h3>2.3.2、创建sn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/snlist/8/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add Sn success"
+}
+</code></pre></table></div><h3>2.3.3、删除sn</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/component/sndetail/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 204,
+    "msg": "del success"
+}
+</code></pre></table></div></div></div><h1>3、test_record</h1><div style="margin-left:0px;"><h2>3.1、build_test</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>建立测试，创建第一条test item record</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/buildtest/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>component的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">log_path</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>testitemrecord要更新上去的log_path</td>
+</tr>
+<tr>
+<td style="text-align: left;">bmcip</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>bmcip，必须填写ip格式</td>
+</tr>
+<tr>
+<td style="text-align: left;">ethernetip</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>ethernetip，必须填写ip格式</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": "success",
+    "message": "update rack_sn testrecord success"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "data": "error",
+    "msg": {
+        "__all__": [
+            "错误信息"
+        ]
+    }
+}
+</code></pre></table></div><h2>3.2、next stage</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>跳转下一站</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/nextstage/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>component的sn</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "sn": "TLAB000001",
+        "next_stage": "TP"
+    },
+    "msg": "update success"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "data": "error",
+    "msg": {
+        "__all__": [
+            "错误信息"
+        ]
+    }
+}
+</code></pre></table></div><h2>3.3、modifyip</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>修改bmcip跟ethernetip</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/modifyip/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>component的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">bmcip</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>填写可以修改bmcip，不填写则不修改</td>
+</tr>
+<tr>
+<td style="text-align: left;">ethernetip</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>填写可以修改ethernetip，不填写则不修改</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": "update success"
+}
+</code></pre></table></div><h2>3.4、start_test_item</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>开始测试项</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/starttestitem/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>component_node的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加该testitemreocrd的stage</td>
+</tr>
+<tr>
+<td style="text-align: left;">testitem</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加testitem，同一sn，同一stage下不可重复</td>
+</tr>
+<tr>
+<td style="text-align: left;">is_manual</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>不填或者填写1为或者true手动，填写0为非手动</td>
+</tr>
+<tr>
+<td style="text-align: left;">machine_name</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>如果testitem为Cross开头则必须填写，为抢占功能</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": "component_sn= TLAB000001 update success",
+    "msg": "update last test item record success"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "data": "error",
+    "msg": {
+        "__all__": [
+            "错误信息"
+        ]
+    }
+}
+</code></pre></table></div><h2>3.5、end_test_item</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>结束测试项</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/endtestitem/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>component_node的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">errorcode</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>如果teststatus为fail/timeout则此项必填</td>
+</tr>
+<tr>
+<td style="text-align: left;">teststatus</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>修改test_item_record状态</td>
+</tr>
+<tr>
+<td style="text-align: left;">errordescription</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>如果teststatus为fail/timeout则此项必填</td>
+</tr>
+<tr>
+<td style="text-align: left;">testitem</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>与sn筛选唯一数据</td>
+</tr>
+<tr>
+<td style="text-align: left;">machine_name</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>如果testitem为Cross开头则必须填写，为抢占功能</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": "component_sn= TLAB000001 update success",
+    "msg": "update last test item record success"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "data": "error",
+    "msg": {
+        "__all__": [
+            "错误信息"
+        ]
+    }
+}
+</code></pre></table></div><h2>3.6、get test_item_record</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>From testrecordid to get testitemrecord</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>https://10.41.95.85:8900/api/testrecord/gettestitemrecord/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">testrecord_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>test record id</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 7,
+            "testrecordid_id": 10000,
+            "component_node_id_id": 3,
+            "stage": "",
+            "testitem": null,
+            "waittime": 0,
+            "starttime": null,
+            "endtime": "2022-08-04T05:52:52.138Z",
+            "teststatus": "3",
+            "errorcode": "robbin_test",
+            "errordescription": "robbin_test_description",
+            "operatorid": "Z20070104",
+            "createtime": "2022-08-04T05:52:34.392Z",
+            "isvalid": true,
+            "ismanual": false
+        },
+        {
+            "id": 6,
+            "testrecordid_id": 10000,
+            "component_node_id_id": 3,
+            "stage": "",
+            "testitem": null,
+            "waittime": 0,
+            "starttime": null,
+            "endtime": "2022-08-04T05:52:34.341Z",
+            "teststatus": "3",
+            "errorcode": "robbin_test",
+            "errordescription": "robbin_test_description",
+            "operatorid": "Z20070104",
+            "createtime": "2022-08-04T05:48:32.393Z",
+            "isvalid": true,
+            "ismanual": true
+        },
+        {
+            "id": 1,
+            "testrecordid_id": 10000,
+            "component_node_id_id": 3,
+            "stage": "test",
+            "testitem": "xvxv",
+            "waittime": 0,
+            "starttime": "2022-08-03T06:45:50.292Z",
+            "endtime": "2022-08-04T05:48:32.349Z",
+            "teststatus": "4",
+            "errorcode": "robbin_test",
+            "errordescription": "robbin_test_description",
+            "operatorid": "Z20070104",
+            "createtime": "2022-08-03T02:55:37Z",
+            "isvalid": true,
+            "ismanual": true
+        },
+        {
+            "id": 10086,
+            "testrecordid_id": 10000,
+            "component_node_id_id": 2,
+            "stage": null,
+            "testitem": null,
+            "waittime": null,
+            "starttime": null,
+            "endtime": null,
+            "teststatus": "3",
+            "errorcode": null,
+            "errordescription": null,
+            "operatorid": null,
+            "createtime": "2022-08-03T02:53:35Z",
+            "isvalid": true,
+            "ismanual": true
+        }
+    ],
+    "message": "Please input testrecord_id"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 500,
+    "data": "error",
+    "message": "Please input testrecord_id"
+}
+</code></pre></table></div></div><h1>4、rack</h1><div style="margin-left:0px;"><h2>4.1、获取rack</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/racklist/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "name": "test-rack11",
+            "model_name": "AMBROSE1",
+            "operator_id": "Z21071622",
+            "stage": "TN,TO,TP",
+            "rack_row": 3,
+            "rack_col": 2
+        },
+        {
+            "id": 6,
+            "name": "m-r-test",
+            "model_name": "m-r-test",
+            "operator_id": "m-r-test",
+            "stage": "test",
+            "rack_row": 4,
+            "rack_col": 4
+        }
+    ],
+    "msg": "success",
+    "count": 2
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>rack名称</td>
+</tr>
+<tr>
+<td style="text-align: left;">model_name</td>
+<td style="text-align: left;">string</td>
+<td>rack model-name</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">string</td>
+<td>操作员</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">string</td>
+<td>站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_row</td>
+<td style="text-align: left;">int</td>
+<td>rack行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_col</td>
+<td style="text-align: left;">int</td>
+<td>rack列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">count</td>
+<td style="text-align: left;">int</td>
+<td>返回的rack数量</td>
+</tr>
+</tbody>
+</table></div><h2>4.2、获取rackcomponentnode</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackcomponentnode/85/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 85,
+        "rack_id__id": 1,
+        "rack_id__name": "test-rack11",
+        "rack_id__stage": "TN,TO,TP",
+        "rack_id__rack_row": 3,
+        "rack_id__rack_col": 2,
+        "current_stage": "TN",
+        "operator_id": "AB",
+        "sn": "TLABL11001",
+        "change": 0,
+        "type": 0,
+        "rackcomponentnodes": [
+            {
+                "id": 250,
+                "start_row": 1,
+                "end_row": 1,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__component_id": 3,
+                "component_node_id__id": 250,
+                "component_node_id__sn": "TLAB000001",
+                "component_node_id__change": 0,
+                "component_node_id__current_stage": "TN",
+                "component_node_id__teststatus": "0",
+                "component_node_id__component_id__name": "UUT",
+                "testitemrecord_id": null,
+                "testitemrecord_testitem": "NA",
+                "ismanual": false
+            },
+            {
+                "id": 251,
+                "start_row": 2,
+                "end_row": 2,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__component_id": 3,
+                "component_node_id__id": 251,
+                "component_node_id__sn": "TLAB000002",
+                "component_node_id__change": 0,
+                "component_node_id__current_stage": "TN",
+                "component_node_id__teststatus": "0",
+                "component_node_id__component_id__name": "UUT",
+                "testitemrecord_id": null,
+                "testitemrecord_testitem": "NA",
+                "ismanual": false
+            },
+            {
+                "id": 252,
+                "start_row": 3,
+                "end_row": 3,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__component_id": 3,
+                "component_node_id__id": 252,
+                "component_node_id__sn": "NA",
+                "component_node_id__change": 0,
+                "component_node_id__current_stage": "NA",
+                "component_node_id__teststatus": "-1",
+                "component_node_id__component_id__name": "UUT",
+                "testitemrecord_id": null,
+                "testitemrecord_testitem": "NA",
+                "ismanual": false
+            }
+        ]
+    },
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td>rack node ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__id</td>
+<td style="text-align: left;">int</td>
+<td>rack ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__name</td>
+<td style="text-align: left;">string</td>
+<td>rack name</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__stage</td>
+<td style="text-align: left;">string</td>
+<td>rack 站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__rack_row</td>
+<td style="text-align: left;">int</td>
+<td>rack 行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__rack_col</td>
+<td style="text-align: left;">int</td>
+<td>rack 列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">current_stage</td>
+<td style="text-align: left;">string</td>
+<td>racknode 当前站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">string</td>
+<td>racknode 操作员ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">string</td>
+<td>racknode sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">change</td>
+<td style="text-align: left;">int</td>
+<td>racknode是否需要闪烁</td>
+</tr>
+<tr>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;">int</td>
+<td>racknode是否为备品</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes</td>
+<td style="text-align: left;">array</td>
+<td>rackcomponentnode信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.id</td>
+<td style="text-align: left;">int</td>
+<td>rackcomponentnode ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.start_row</td>
+<td style="text-align: left;">int</td>
+<td>rackcomponentnode开始行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.end_row</td>
+<td style="text-align: left;">int</td>
+<td>rackcomponentnode结束行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.start_col</td>
+<td style="text-align: left;">int</td>
+<td>rackcomponentnode开始列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.end_col</td>
+<td style="text-align: left;">int</td>
+<td>rackcomponentnode结束列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__component_id</td>
+<td style="text-align: left;">int</td>
+<td>所对应的component ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__id</td>
+<td style="text-align: left;">int</td>
+<td>所对应的componentnode ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__sn</td>
+<td style="text-align: left;">string</td>
+<td>所对应的componentnode sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__change</td>
+<td style="text-align: left;">string</td>
+<td>所对应的componentnode是否需要闪烁</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__current_stage</td>
+<td style="text-align: left;">string</td>
+<td>所对应的componentnode当前站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__teststatus</td>
+<td style="text-align: left;">string</td>
+<td>所对应的componentnode的测试状态</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__component_id__name</td>
+<td style="text-align: left;">string</td>
+<td>所对应的component名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.testitemrecord_id</td>
+<td style="text-align: left;">object</td>
+<td>所对应的testitemrecord ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.testitemrecord_testitem</td>
+<td style="text-align: left;">string</td>
+<td>所对应的testitemrecord testitem</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.ismanual</td>
+<td style="text-align: left;">string</td>
+<td>是否手动</td>
+</tr>
+</tbody>
+</table></div><h2>4.3、scanin</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>将component绑定进入rack</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/scanin/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">componentnode_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加时候需要的componentnode_id</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加时候需要的rack_node_id</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_component_node_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加时候需要的rack_component_node_id</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加进去的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加使用的operator_id，默认为rack的操作员</td>
+</tr>
+<tr>
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>添加时候的component状态，全新为-1</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "update success"
+}
+</code></pre></table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "msg": {
+        "__all__": [
+            "this sn TLAB000002 is exist"
+        ]
+    }
+}
+</code></pre></table></div><h2>4.4、添加rack</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/racklist/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">model_name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>model_name</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>操作员</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_row</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>rack行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_col</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>rack列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>名称</td>
+</tr>
+<tr>
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>站别</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 201,
+    "msg": "add rack success"
+}
+</code></pre></table></div><h2>4.5、修改rack</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>通过rackID修改信息</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackdetail/3/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>patch</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">model_name</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div><h2>4.6、删除rack</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>通过rackID删除数据</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackdetail/3/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul></div><h2>4.7、通过sn，获取rack</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/getrackbysn/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>rack 的sn</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 85,
+        "sn": "TLABL11001",
+        "current_stage": "TN",
+        "operator_id": "AB",
+        "rack_id__name": "test-rack11",
+        "rack_id__stage": "TN,TO,TP",
+        "components": [
+            {
+                "id": 3,
+                "name": "UUT",
+                "stage": "TN,TO,TP,PX",
+                "col": 2,
+                "row": 1,
+                "is_iperf": 1,
+                "componentnode_sn": "TLAB000001"
+            },
+            {
+                "id": 3,
+                "name": "UUT",
+                "stage": "TN,TO,TP,PX",
+                "col": 2,
+                "row": 1,
+                "is_iperf": 1,
+                "componentnode_sn": "TLAB000002"
+            },
+            {
+                "id": 3,
+                "name": "UUT",
+                "stage": "TN,TO,TP,PX",
+                "col": 2,
+                "row": 1,
+                "is_iperf": 1,
+                "componentnode_sn": "NA"
+            }
+        ]
+    },
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td>rack node ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">string</td>
+<td>rack node sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">current_stage</td>
+<td style="text-align: left;">string</td>
+<td>rack node 当前站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">string</td>
+<td>rack node 操作员</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__name</td>
+<td style="text-align: left;">string</td>
+<td>对应rack的名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id__stage</td>
+<td style="text-align: left;">string</td>
+<td>对应rack的站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">components</td>
+<td style="text-align: left;">array</td>
+<td>racknode对应的rackcomponentnode对应的component信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.id</td>
+<td style="text-align: left;">int</td>
+<td>component ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.name</td>
+<td style="text-align: left;">string</td>
+<td>component name</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.stage</td>
+<td style="text-align: left;">string</td>
+<td>component 站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.col</td>
+<td style="text-align: left;">string</td>
+<td>component 列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.row</td>
+<td style="text-align: left;">string</td>
+<td>component 行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.is_iperf</td>
+<td style="text-align: left;">string</td>
+<td>component 是否需要进行iperf测试</td>
+</tr>
+<tr>
+<td style="text-align: left;">components.componentnode_sn</td>
+<td style="text-align: left;">string</td>
+<td>racknode对应的rackcomponentnode对应的componentnode的sn</td>
+</tr>
+</tbody>
+</table></div><h2>4.1、racklocation</h2><div style="margin-left:0px;"><h3>4.1.1、获取单个racklocation</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/racklocation/1/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 1,
+        "name": "Rack-1",
+        "area_id__id": 1,
+        "coordinateX": 0,
+        "coordinateY": 0,
+        "rack_node_id": 85,
+        "rack_node_id__operator_id": "AB",
+        "rack_node_id__sn": "TLABL11001",
+        "rack_node_id__rack_id": 1,
+        "rack_node_id__rack_id__model_name": "AMBROSE1",
+        "rack_node_id__current_stage": "TN",
+        "rackcomponentnodes": [
+            {
+                "start_row": 1,
+                "end_row": 1,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__operator_id": "AB",
+                "component_node_id__sn": "TLAB000001"
+            },
+            {
+                "start_row": 2,
+                "end_row": 2,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__operator_id": "DEBUGOPID",
+                "component_node_id__sn": "TLAB000002"
+            },
+            {
+                "start_row": 3,
+                "end_row": 3,
+                "start_col": 1,
+                "end_col": 2,
+                "component_node_id__operator_id": "",
+                "component_node_id__sn": "NA"
+            }
+        ]
+    },
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>rack name</td>
+</tr>
+<tr>
+<td style="text-align: left;">area_id__id</td>
+<td style="text-align: left;">int</td>
+<td>area id</td>
+</tr>
+<tr>
+<td style="text-align: left;">coordinateX</td>
+<td style="text-align: left;">int</td>
+<td>coordinatex</td>
+</tr>
+<tr>
+<td style="text-align: left;">coordinateY</td>
+<td style="text-align: left;">int</td>
+<td>coordinatey</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id</td>
+<td style="text-align: left;">int</td>
+<td>rack node id</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id__operator_id</td>
+<td style="text-align: left;">string</td>
+<td>rack node的操作员ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id__sn</td>
+<td style="text-align: left;">string</td>
+<td>rack node的sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id__rack_id</td>
+<td style="text-align: left;">int</td>
+<td>rack node对应的rack ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id__rack_id__model_name</td>
+<td style="text-align: left;">string</td>
+<td>rack model name</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_node_id__current_stage</td>
+<td style="text-align: left;">string</td>
+<td>rack node 当前站别</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes</td>
+<td style="text-align: left;">array</td>
+<td>rackcomponentnode的信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.start_row</td>
+<td style="text-align: left;">string</td>
+<td>rackcomponentnode开始行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.end_row</td>
+<td style="text-align: left;">string</td>
+<td>rackcomponentnode结束行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.start_col</td>
+<td style="text-align: left;">string</td>
+<td>rackcomponentnode开始列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.end_col</td>
+<td style="text-align: left;">string</td>
+<td>rackcomponentnode结束列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__operator_id</td>
+<td style="text-align: left;">string</td>
+<td>所对应component node的操作员ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponentnodes.component_node_id__sn</td>
+<td style="text-align: left;">string</td>
+<td>所对应component node的sn</td>
+</tr>
+</tbody>
+</table></div><h3>4.1.2、获取racklocation</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>通过areaID</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/racklocationlist/2/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul></div><h3>4.1.3、checkin</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>rack确定位置，rack与racklocation关联，记录rack信息（sn，操作员信息），记录站别。</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/racklocationcheckin/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">racklocation_id</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>racklocation ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_id</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>rack ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">sn</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>rack_node sn</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>rack_node  operator_id</td>
+</tr>
+<tr>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>是否为备品库</td>
+</tr>
+</tbody>
+</table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "msg": {
+        "__all__": [
+            "sn not exist"
+        ]
+    }
+}
+</code></pre></table></div></div><h2>4.2、rackcomponent</h2><div style="margin-left:0px;"><h3>4.2.1、获取rackcomponent</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>通过rackID获取该rack所有rackcomponent</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackcomponent/1/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "data": {
+        "id": 1,
+        "name": "test-rack11",
+        "model_name": "AMBROSE1",
+        "operator_id": "Z21071622",
+        "rack_col": 2,
+        "rack_row": 3,
+        "rackcomponents": [
+            {
+                "id": 4,
+                "start_row": 1,
+                "end_row": 1,
+                "start_col": 1,
+                "end_col": 2,
+                "component_id__id": 3,
+                "component_id__name": "UUT"
+            },
+            {
+                "id": 5,
+                "start_row": 2,
+                "end_row": 2,
+                "start_col": 1,
+                "end_col": 2,
+                "component_id__id": 3,
+                "component_id__name": "UUT"
+            },
+            {
+                "id": 6,
+                "start_row": 3,
+                "end_row": 3,
+                "start_col": 1,
+                "end_col": 2,
+                "component_id__id": 3,
+                "component_id__name": "UUT"
+            }
+        ]
+    },
+    "msg": "success"
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>rack name</td>
+</tr>
+<tr>
+<td style="text-align: left;">model_name</td>
+<td style="text-align: left;">string</td>
+<td>rack model name</td>
+</tr>
+<tr>
+<td style="text-align: left;">operator_id</td>
+<td style="text-align: left;">string</td>
+<td>操作员ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_col</td>
+<td style="text-align: left;">string</td>
+<td>rack列数</td>
+</tr>
+<tr>
+<td style="text-align: left;">rack_row</td>
+<td style="text-align: left;">string</td>
+<td>rack行数</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents</td>
+<td style="text-align: left;">array</td>
+<td>rack和component的组合信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.start_row</td>
+<td style="text-align: left;">string</td>
+<td>component在rack的开始行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.end_row</td>
+<td style="text-align: left;">string</td>
+<td>component在rack的结束行</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.start_col</td>
+<td style="text-align: left;">string</td>
+<td>component在rack的开始列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.end_col</td>
+<td style="text-align: left;">string</td>
+<td>component在rack的结束列</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.component_id__id</td>
+<td style="text-align: left;">string</td>
+<td>component的ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">rackcomponents.component_id__name</td>
+<td style="text-align: left;">string</td>
+<td>component的name</td>
+</tr>
+</tbody>
+</table></div><h3>4.2.2、解绑rackcomponent</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>ID为rackcomponentID</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackcomponentdeleave/2/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul></div><h3>4.2.3、添加rackcomponent</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>未完成</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8000/api/rack/rackcomponentassembly/</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求Body参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">rack_id</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>rack ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">component_id</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>component ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">start_row</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>开始行</td>
+</tr>
+<tr>
+<td style="text-align: left;">end_row</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>结束行</td>
+</tr>
+<tr>
+<td style="text-align: left;">start_col</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>开始列</td>
+</tr>
+<tr>
+<td style="text-align: left;">end_col</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>结束列</td>
+</tr>
+</tbody>
+</table>
+<h5>失败返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 400,
+    "msg": {
+        "__all__": [
+            "component and rack stage is inconformity"
+        ]
+    }
+}
+</code></pre></table></div></div></div></body></html>

@@ -1,0 +1,105 @@
+version: '3'
+
+services: 
+  l11-nginx-service: 
+    container_name: l11-nginx
+    image: nginx:1.18
+    restart: always
+    ports: 
+      - 8900:8900
+    volumes:
+      - ./L11_nginx.conf:/etc/nginx/conf.d/L11_nginx.conf
+      - ../sourcecode/frontend/dist:/L11/sourcecode/frontend/dist
+      - ../SSL:/etc/nginx/SSL #  项目ssl文件
+      - ../logs/L11/nginx:/var/log/nginx
+    links: 
+      - l11-web-service
+    command: [nginx,'-g','daemon off;']
+    depends_on:
+      - l11-web-service
+
+    
+  l11-web-service:
+    container_name: l11-web
+    build: ./
+    image: l11_web
+    privileged: true
+    restart: always
+    # tty: true
+    ports: 
+      - 8901:8901
+    command: bash start.sh
+    volumes: 
+      - ../sourcecode/backend/hugin_L11:/L11/sourcecode/backend
+      - ./:/L11/docker
+      - ../SSL:/L11/sourcecode/backend/SSL
+      - /etc/localtime:/etc/localtime
+      - ../logs/L11/django:/L11/logs/L11/django
+      - ../logs/L11/uwsgi:/L11/logs/L11/uwsgi
+    links: 
+      - l11-redis-service
+      - l11-test-primary
+      - l11-test-replica
+      
+    depends_on:
+      - l11-redis-service
+      - l11-test-primary
+      - l11-test-replica
+
+  l11-redis-service:
+    container_name: l11-redis
+    image: redis:latest
+    restart: always
+    ports:
+      - 8909:6379
+    expose:
+      - "8909"
+
+
+  # 主数据库
+  l11-test-primary:
+    container_name: l11-test-primary
+    build:
+      context: ./
+      dockerfile: ./Postgres_Dockerfile
+    ports:
+      - 8910:5432
+    environment:
+      REPLICATION_ROLE: master
+      POSTGRES_PASSWORD: '123456'
+      POSTGRES_USER: postgres
+      POSTGRES_DB: l11_test_primary
+    volumes: 
+    #   # - ./:/L11/docker
+    #   # - ../backup:/L11/backup
+      - /etc/localtime:/etc/localtime
+      - pgdata_primary:/var/lib/postgresql/data/
+
+
+  # 从数据库
+  l11-test-replica:
+    build:
+      context: ./
+      dockerfile: ./Postgres_Dockerfile
+    container_name: l11-test-replica
+    restart: always
+    ports:
+      - 8911:5432
+    links:
+      - l11-test-primary
+    environment:
+      REPLICATION_ROLE: slave
+      POSTGRES_MASTER_SERVICE_HOST: l11-test-primary
+      POSTGRES_PASSWORD: '123456'
+      POSTGRES_USER: postgres
+      POSTGRES_DB: l11-test-primary
+    volumes: 
+    #   # - ./:/L11/docker
+    #   # - ../backup:/L11/backup
+      - /etc/localtime:/etc/localtime
+      - pgdata_replica:/var/lib/postgresql/data/
+
+
+volumes:
+  pgdata_primary:
+  pgdata_replica:
